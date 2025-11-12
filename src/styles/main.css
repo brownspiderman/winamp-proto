@@ -1,0 +1,129 @@
+/* Main Container */
+.winamp {
+    width: 275px;
+    background: #c0c0c0;
+    border: 1px solid #000;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+    user-select: none;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+/* Title Bar */
+.titlebar {
+    height: 20px;
+    background: linear-gradient(90deg, #000091 0%, #0000f1 100%);
+    color: #fff;
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Main Display */
+.display {
+    background: #000;
+    color: #00ff00;
+    height: 43px;
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.text-display {
+    font-family: "LCD", monospace;
+    font-size: 12px;
+}
+
+.time-display {
+    font-family: "LCD", monospace;
+    font-size: 14px;
+    text-align: right;
+}
+
+/* Media Controls */
+.media-controls {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    background: #c0c0c0;
+    align-items: center;
+}
+
+.media-controls button {
+    width: 23px;
+    height: 18px;
+    border: 1px solid #000;
+    background: #d4d4d4;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-controls button:active {
+    background: #c0c0c0;
+}
+
+/* Volume & Balance Sliders */
+.volume-slider,
+.balance-slider {
+    width: 68px;
+    height: 13px;
+    background: #000;
+    position: relative;
+    margin: 0 8px;
+}
+
+.slider-track {
+    height: 100%;
+    background: #c0c0c0;
+}
+
+.slider-handle {
+    width: 11px;
+    height: 11px;
+    background: #d4d4d4;
+    border: 1px solid #000;
+    position: absolute;
+    top: 1px;
+    cursor: pointer;
+}
+
+/* Seekbar */
+.seekbar {
+    height: 10px;
+    background: #000;
+    margin: 4px;
+    position: relative;
+}
+
+.seekbar-track {
+    height: 100%;
+    background: #00ff00;
+    width: 0%;
+}
+
+.seekbar-handle {
+    width: 4px;
+    height: 8px;
+    background: #d4d4d4;
+    border: 1px solid #000;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+
+/* Add to main.css */
+.winamp-skin-element {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Prevent scaling blur */
+.winamp-sprite {
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+}

@@ -1,0 +1,100 @@
+/* Styles for the Winamp-style music player components */
+
+.player-container {
+    width: 275px;
+    height: 116px;
+    background: url('../assets/skins/Main.bmp') no-repeat;
+    background-size: cover;
+    position: relative;
+    image-rendering: pixelated;
+}
+
+.titlebar {
+    height: 14px;
+    cursor: move;
+}
+
+.track-display {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    line-height: 13px;
+    padding: 0 3px;
+    white-space: nowrap;
+}
+
+.time-display {
+    display: flex;
+    gap: 0.5px;
+}
+
+.controls {
+    display: flex;
+    gap: 3px;
+}
+
+.control-btn {
+    width: 23px;
+    height: 18px;
+    background: url('../assets/skins/CButtons.bmp') no-repeat;
+    cursor: pointer;
+    border: none;
+}
+
+.volume-slider {
+    width: 68px;
+    height: 13px;
+}
+
+.volume-track {
+    background: url('../assets/skins/Volume.bmp') no-repeat;
+}
+
+.volume-thumb {
+    width: 14px;
+    height: 11px;
+    background: url('../assets/skins/Volume.bmp') no-repeat;
+}
+
+.progress-bar {
+    background: url('../assets/skins/PosBar.bmp') no-repeat;
+    cursor: pointer;
+}
+
+.progress-fill {
+    background: url('../assets/skins/PosBar.bmp') no-repeat;
+    height: 10px;
+}
+
+.playlist-window {
+    max-height: 200px;
+    border: 1px solid #333;
+    overflow-y: auto;
+    background: #000;
+}
+
+.playlist-item {
+    padding: 4px 8px;
+    color: #00ff00;
+    cursor: pointer;
+}
+
+.playlist-item:hover {
+    background: #1a1a1a;
+}
+
+.playlist-item.active {
+    background: #003300;
+    font-weight: bold;
+}
+
+.shuffle-repeat {
+    display: flex;
+    gap: 0.5px;
+}
+
+.mono-stereo {
+    width: 29px;
+    height: 12px;
+    background: url('../assets/skins/MonoSter.bmp') no-repeat;
+}

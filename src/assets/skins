@@ -1,0 +1,458 @@
+/* src/styles/components/winamp.css - Fixed CSS with proper syntax */
+
+/* CSS Custom Properties (Variables) - Define these at the root */
+:root {
+    --skin-base-url: "https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin";
+    
+    /* Skin Images */
+    --skin-main: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Main.bmp");
+    --skin-titlebar: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Titlebar.bmp");
+    --skin-cbuttons: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/CButtons.bmp");
+    --skin-volume: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Volume.bmp");
+    --skin-balance: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Balance.bmp");
+    --skin-posbar: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/PosBar.bmp");
+    --skin-shufrep: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/ShufRep.bmp");
+    --skin-text: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Text.bmp");
+    --skin-numbers: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Numbers.bmp");
+    --skin-playpaus: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/PlayPaus.bmp");
+    --skin-monoster: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/MonoSter.bmp");
+    
+    /* Cursors */
+    --cursor-titlebar: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Titlebar.cur");
+    --cursor-volbar: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Volbal.cur");
+    --cursor-posbar: url("https://coda-projects.s3.ap-south-1.amazonaws.com/my-winamp/winamp-skin/Posbar.cur");
+}
+
+/* Main Winamp Container */
+.winamp {
+    width: 275px;
+    height: 116px;
+    font-family: "Arial", sans-serif;
+    position: relative;
+    background: var(--skin-main) no-repeat;
+    background-size: 275px 116px;
+    user-select: none;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Titlebar */
+.titlebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    display: flex;
+    cursor: var(--cursor-titlebar), move;
+    background: var(--skin-titlebar) no-repeat;
+    background-position: 27px 0;
+    background-size: 275px 29px;
+    image-rendering: pixelated;
+}
+
+/* Media Controls Container */
+.media-controls {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    height: 18px;
+    display: flex;
+    gap: 1px;
+    align-items: center;
+}
+
+/* Control Buttons Base */
+.media-controls button {
+    width: 23px;
+    height: 18px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: var(--skin-cbuttons) no-repeat;
+    background-size: 136px 36px;
+    cursor: pointer;
+    image-rendering: pixelated;
+    transition: filter 0.1s;
+}
+
+.media-controls button:hover {
+    filter: brightness(1.1);
+}
+
+.media-controls button:active {
+    filter: brightness(0.9);
+}
+
+/* Individual Button Positions */
+.previous { 
+    background-position: 0 0; 
+}
+.previous:active { 
+    background-position: 0 -18px; 
+}
+
+.play { 
+    background-position: -23px 0; 
+}
+.play:active { 
+    background-position: -23px -18px; 
+}
+
+.pause { 
+    background-position: -46px 0; 
+}
+.pause:active { 
+    background-position: -46px -18px; 
+}
+
+.stop { 
+    background-position: -69px 0; 
+}
+.stop:active { 
+    background-position: -69px -18px; 
+}
+
+.next { 
+    background-position: -92px 0; 
+}
+.next:active { 
+    background-position: -92px -18px; 
+}
+
+.eject {
+    width: 22px;
+    height: 16px;
+    background-position: -114px 0;
+}
+.eject:active {
+    background-position: -114px -16px;
+}
+
+/* Volume Slider */
+.volume-slider {
+    position: absolute;
+    top: 57px;
+    left: 107px;
+    width: 68px;
+    height: 13px;
+    background: var(--skin-volume) no-repeat;
+    background-size: 68px 13px;
+    cursor: var(--cursor-volbar), pointer;
+    image-rendering: pixelated;
+}
+
+/* Balance Slider */
+.balance-slider {
+    position: absolute;
+    top: 57px;
+    left: 177px;
+    width: 38px;
+    height: 13px;
+    background: var(--skin-balance) no-repeat;
+    background-position: 9px 0;
+    background-size: 38px 13px;
+    cursor: var(--cursor-volbar), pointer;
+    image-rendering: pixelated;
+}
+
+/* Slider Handle (for both volume and balance) */
+.slider-handle {
+    width: 14px;
+    height: 11px;
+    position: absolute;
+    top: 1px;
+    background: var(--skin-volume) no-repeat;
+    background-position: -15px -422px;
+    cursor: grab;
+    image-rendering: pixelated;
+}
+
+.slider-handle:active {
+    cursor: grabbing;
+}
+
+/* Seekbar (Progress Bar) */
+.seekbar {
+    position: absolute;
+    top: 72px;
+    left: 16px;
+    width: 248px;
+    height: 10px;
+    background: var(--skin-posbar) repeat-x;
+    cursor: var(--cursor-posbar), pointer;
+    image-rendering: pixelated;
+}
+
+.seekbar-progress {
+    height: 100%;
+    background: var(--skin-posbar) no-repeat;
+    background-position: 0 0;
+    pointer-events: none;
+}
+
+.seekbar-thumb {
+    position: absolute;
+    width: 29px;
+    height: 10px;
+    background: var(--skin-posbar) no-repeat;
+    background-position: -248px 0;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
+
+/* Display Area */
+.display-area {
+    position: absolute;
+    top: 26px;
+    left: 16px;
+    width: 243px;
+    height: 42px;
+}
+
+/* Time Display */
+.time-display {
+    position: absolute;
+    top: 0;
+    left: 32px;
+    width: 60px;
+    height: 13px;
+    background: #000;
+    color: #00ff00;
+    font-size: 10px;
+    font-family: monospace;
+    line-height: 13px;
+    padding: 0 4px;
+    letter-spacing: 2px;
+}
+
+/* Song Title Display */
+.song-title {
+    position: absolute;
+    top: 0;
+    left: 95px;
+    width: 148px;
+    height: 13px;
+    background: #000;
+    color: #00ff00;
+    font-size: 10px;
+    line-height: 13px;
+    padding: 0 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Visualizer */
+.visualizer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 76px;
+    height: 16px;
+    background: #000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 2px;
+    gap: 1px;
+}
+
+.visualizer-bar {
+    width: 3px;
+    background: #00ff00;
+    transition: height 0.1s ease-out;
+}
+
+/* Bitrate/Frequency Display */
+.info-display {
+    position: absolute;
+    top: 19px;
+    left: 95px;
+    display: flex;
+    gap: 4px;
+    font-size: 8px;
+}
+
+.bitrate, .frequency, .channels {
+    background: #000;
+    color: #00ff00;
+    padding: 1px 3px;
+    font-family: monospace;
+}
+
+/* Mono/Stereo Indicator */
+.mono-stereo {
+    position: absolute;
+    top: 28px;
+    left: 212px;
+    width: 29px;
+    height: 12px;
+    background: var(--skin-monoster) no-repeat;
+}
+
+.mono-stereo.stereo {
+    background-position: 0 -12px;
+}
+
+.mono-stereo.mono {
+    background-position: -29px 0;
+}
+
+/* Shuffle/Repeat Buttons */
+.shuffle-repeat {
+    position: absolute;
+    bottom: 16px;
+    right: 80px;
+    display: flex;
+    gap: 1px;
+}
+
+.shuffle-btn, .repeat-btn {
+    border: none;
+    padding: 0;
+    background: var(--skin-shufrep) no-repeat;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.shuffle-btn {
+    width: 47px;
+    height: 15px;
+    background-position: -28px 0;
+}
+
+.shuffle-btn.active {
+    background-position: -28px -15px;
+}
+
+.repeat-btn {
+    width: 28px;
+    height: 15px;
+    background-position: 0 0;
+}
+
+.repeat-btn.active {
+    background-position: 0 -15px;
+}
+
+/* EQ and Playlist Buttons */
+.eq-pl-buttons {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    gap: 1px;
+}
+
+.eq-btn, .pl-btn {
+    width: 23px;
+    height: 12px;
+    border: none;
+    padding: 0;
+    background: var(--skin-shufrep) no-repeat;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.eq-btn {
+    background-position: -46px 0;
+}
+
+.eq-btn:active {
+    background-position: -46px -12px;
+}
+
+.pl-btn {
+    background-position: -69px 0;
+}
+
+.pl-btn:active {
+    background-position: -69px -12px;
+}
+
+/* Playing/Paused/Stopped Indicator */
+.playback-status {
+    position: absolute;
+    top: 28px;
+    left: 24px;
+    width: 9px;
+    height: 9px;
+    background: var(--skin-playpaus) no-repeat;
+}
+
+.playback-status.playing {
+    background-position: -36px 0;
+}
+
+.playback-status.paused {
+    background-position: -27px 0;
+}
+
+.playback-status.stopped {
+    background-position: -18px 0;
+}
+
+/* Window Buttons (Minimize, Maximize, Close) */
+.window-buttons {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+    display: flex;
+    gap: 2px;
+}
+
+.window-btn {
+    width: 9px;
+    height: 9px;
+    border: none;
+    padding: 0;
+    background: var(--skin-titlebar) no-repeat;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.minimize-btn {
+    background-position: -9px -18px;
+}
+
+.maximize-btn {
+    background-position: 0 -18px;
+}
+
+.close-btn {
+    background-position: -18px -18px;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+/* Responsive Design */
+@media (max-width: 320px) {
+    .winamp {
+        transform: scale(0.9);
+        transform-origin: top left;
+    }
+}
+
+/* Dark Mode Support (optional) */
+@media (prefers-color-scheme: dark) {
+    /* Skin already has its own colors, but you can add overrides if needed */
+}
+
+/* Print Styles */
+@media print {
+    .winamp {
+        border: 2px solid #000;
+        box-shadow: none;
+    }
+}
