@@ -1,0 +1,13 @@
+{
+  "name": "winamp-player",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "vite": "^4.0.0"
+  }
+}
